@@ -1,0 +1,3 @@
+.vagrant
+files/ssh
+vagrant.log

@@ -1,0 +1,7 @@
+spawn accumulo init
+expect "Instance name :"
+send "instance\r"
+expect "Enter initial password*"
+send "secret\r"
+expect "Confirm initial password*"
+send "secret\r"
