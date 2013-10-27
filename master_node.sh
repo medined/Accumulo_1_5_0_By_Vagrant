@@ -14,7 +14,7 @@ EOF
 source /vagrant/files/setup.sh
 source /vagrant/files/install_hadoop.sh
 source /vagrant/files/install_zookeeper.sh
-#source /vagrant/files/install_accumulo.sh
+source /vagrant/files/install_accumulo.sh
 
 chown -R vagrant:vagrant $BASE_DIR
 
