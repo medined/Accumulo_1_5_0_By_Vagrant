@@ -23,11 +23,9 @@ minutes before the post_spinup script the problem did not happen.
 
 Now you can visit the following URLs in your browser:
 
-```
-http://affy-master:50095
-http://affy-master:50070/dfshealth.jsp
-http://affy-master:50030/jobtracker.jsp
-```
+<a href='http://affy-master:50095/'>http://affy-master:50095/</a><br/>
+<a href='http://affy-master:50070/dfshealth.jsp'>http://affy-master:50070/dfshealth.jsp</a><br/>
+<a href='http://affy-master:50030/jobtracker.jsp'>http://affy-master:50030/jobtracker.jsp</a><br/>
 
 You can SSH to the nodes using the following commands. Notice that the hostnames start with 'affy-' but that 
 the vagrant nodes do not have the prefix.
