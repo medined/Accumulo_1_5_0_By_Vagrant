@@ -35,3 +35,16 @@ vagrant ssh master
 vagrant ssh slave1
 vagrant ssh slave2
 ```
+
+X-WINDOWS on SLAVE2
+===================
+
+The second slave is configured so that X11 port forwarding is automatic when you use 'vagrant ssh slave2'. For 
+convenience, I manually installed additional software on that node:
+
+```
+sudo apt-get install -y x11-apps
+sudo apt-get install -y netbeans
+```
+
+
