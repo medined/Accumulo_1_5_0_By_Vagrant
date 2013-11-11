@@ -46,6 +46,7 @@ Vagrant.configure("2") do |config|
     slave2.vm.network :private_network, ip: "10.211.55.102"
     slave2.vm.hostname = slave2_node_name
     slave2.vm.provision :shell, :path => "slave_node.sh"
+    config.ssh.forward_x11 = true
   end
 
 end
