@@ -14,7 +14,7 @@ echo "deb http://ppa.launchpad.net/natecarlson/maven3/ubuntu precise main" | tee
 echo "deb-src http://ppa.launchpad.net/natecarlson/maven3/ubuntu precise main" | tee -a /etc/apt/sources.list
 apt-get update
 
-apt-get -y install openjdk-6-jdk subversion expect
+apt-get -y install openjdk-6-jdk subversion expect git
 #apt-get -y install curl git openssh-server openssh-client terminator openjdk-6-jdk subversion screen g++ make meld build-essential g++-multilib
 apt-get -y --force-yes install maven3
 
@@ -39,6 +39,9 @@ export PATH=\$ACCUMULO_HOME/bin:\$PATH
 export PATH=\$HADOOP_PREFIX/bin:\$PATH
 export PATH=/usr/lib/jvm/java-6-openjdk-amd64/bin:\$PATH
 export PATH=\$ZOOKEEPER_HOME/bin:\$PATH
+
+# see https://issues.apache.org/jira/browse/HADOOP-7154
+export MALLOC_ARENA_MAX=1
 EOF
 
 source /etc/profile.d/accumulo_setup.sh
