@@ -47,7 +47,7 @@ EOF
 source /etc/profile.d/accumulo_setup.sh
 
 export HADOOP_VERSION=hadoop-1.2.1
-export ZOOKEEPER_VERSION=zookeeper-3.4.3
+export ZOOKEEPER_VERSION=zookeeper-3.4.5
 export LOGFILE=$HOME/build.log
 export PASSWORD=`openssl passwd -1 password`
 
