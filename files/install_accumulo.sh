@@ -2,15 +2,19 @@
 
 export MY_ACCUMULO_VERSION=1.5.0
 
+# Copy the maven settings file to the right place so we can do offline compilation of Accumulo.
+mkdir $HOME/.m2
+cp $VFILES/config/maven/settings.xml $HOME/.m2
+
 mkdir -p $BASE_DIR/software/accumulo-$MY_ACCUMULO_VERSION $BASE_DIR/bin/accumulo-$MY_ACCUMULO_VERSION
 
 # Accumulo is extracted into a software directory and then installed
 # into a bin directory.
 
-tar xvf /vagrant/files/accumulo-1.5.0-src.tar.gz -C $BASE_DIR/software
+tar xvf $VFILES/accumulo-1.5.0-src.tar.gz -C $BASE_DIR/software
 ln -s $BASE_DIR/software/accumulo-$MY_ACCUMULO_VERSION $BASE_DIR/software/accumulo
 
-pushd $BASE_DIR/software/accumulo-$MY_ACCUMULO_VERSION; mvn -DskipTests package -P assemble; popd
+pushd $BASE_DIR/software/accumulo-$MY_ACCUMULO_VERSION; mvn -o -DskipTests package -P assemble; popd
 echo "Compiled accumulo"
 
 tar xfz $BASE_DIR/software/accumulo/assemble/target/accumulo-$MY_ACCUMULO_VERSION-bin.tar.gz -C $BASE_DIR/bin
