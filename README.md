@@ -1,25 +1,13 @@
-Accumulo v1.5.0 By Vagrant
-=======================
+# Accumulo v1.5.0 By Vagrant
 
 A three node Accumulo cluster running on Ubuntu Precise (12.04). The instance name is 'instance'. The 
 user name is 'root' and the password is 'secret'.
 
 1. Install Vagrant
-2. Download this project.
-3. Add the following to your /etc/host file.
-
-```
-10.211.55.100	affy-master
-10.211.55.101	affy-slave1
-10.211.55.102	affy-slave2
-```
-
+2. vagrant plugin install vagrant-hostmanager
+3. Download this project.
 4. Run 'Vagrant up'
-
-5. Wait a few minutes. I'm not sure why but I had a problem SSH'ing from master to slave2. When I waiting a few 
-minutes before the post_spinup script the problem did not happen.
-
-6. Run 'post_spinup.sh'
+5. Run 'post_spinup.sh'
 
 Now you can visit the following URLs in your browser:
 
@@ -36,8 +24,17 @@ vagrant ssh slave1
 vagrant ssh slave2
 ```
 
-X-WINDOWS on SLAVE2
-===================
+## Install Pig on a node
+
+1. vagrant ssh master
+2. cd /home/vagrant/accumulo_home/bin
+3. tar xvfz /vagrant/files/pig-0.12.0.tar.gz
+4. export PATH=/home/vagrant/accumulo_home/bin/pig-0.12.0/bin:$PATH 
+
+If you want pig to always be available update your path in the ~/.bashrc file.
+
+
+## X-WINDOWS on SLAVE2
 
 The second slave is configured so that X11 port forwarding is automatic when you use 'vagrant ssh slave2'. For 
 convenience, I manually installed additional software on that node:
