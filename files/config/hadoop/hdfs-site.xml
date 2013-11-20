@@ -4,7 +4,7 @@
 <configuration>
         <property>
           <name>dfs.secondary.http.address</name>
-          <value>hdfs://localhost:50090</value>
+          <value>hdfs://affy-master:50090</value>
         </property>
         <property>
           <name>dfs.replication</name>

@@ -5,6 +5,8 @@ if [ -f /.vagrant_build_done ]; then
     exit
 fi
 
+echo "" > /etc/hosts
+
 source /vagrant/files/setup.sh
 source /vagrant/files/install_hadoop.sh
 source /vagrant/files/install_zookeeper.sh
