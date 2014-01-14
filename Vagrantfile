@@ -1,7 +1,7 @@
 
-master_node_name = "affy-master"
-slave1_node_name = "affy-slave1"
-slave2_node_name = "affy-slave2"
+master_node_name = "affy-master.example.com"
+slave1_node_name = "affy-slave1.example.com"
+slave2_node_name = "affy-slave2.example.com"
 
 Vagrant.configure("2") do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
@@ -22,7 +22,12 @@ Vagrant.configure("2") do |config|
     end
     master.vm.network :private_network, ip: "10.211.55.100"
     master.vm.hostname = master_node_name
-    master.vm.provision :shell, :path => "master_node.sh"
+    #master.vm.provision :shell, :path => "master_node.sh"
+    master.vm.provision "puppet" do |puppet|
+      puppet.facter = {
+        "vagrant" => "1"
+      }
+    end
   end
 
   config.vm.define :slave1 do |slave1|
