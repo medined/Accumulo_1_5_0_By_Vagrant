@@ -24,8 +24,9 @@ Vagrant.configure("2") do |config|
     master.vm.hostname = master_node_name
     #master.vm.provision :shell, :path => "master_node.sh"
     master.vm.provision "puppet" do |puppet|
+      puppet.options = "--verbose --debug"
       puppet.facter = {
-        "vagrant" => "1"
+        "vagrant" => "1",
       }
     end
   end
