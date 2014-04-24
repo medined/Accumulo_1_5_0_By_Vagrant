@@ -56,4 +56,74 @@ sudo apt-get install -y x11-apps
 sudo apt-get install -y netbeans
 ```
 
+## Installing Octave 3.8.1 from Source
+
+See http://www.gnu.org/software/octave/ for more information.
+
+The following steps took about 40 minutes to run. Note that Java will work with Octave even though it says the Java package is not installed.
+
+```
+cd ~
+sudo apt-get install -y g++ gfortran bison
+sudo apt-get build-dep -y octave3.2
+wget ftp://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.gz
+tar xvfz octave-3.8.1.tar.gz
+cd octave-3.8.1
+./configure --with-java-libdir="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server"
+make
+sudo make install
+```
+
+## Installing D4M v2.5.1
+
+See http://www.mit.edu/~kepner/D4M/gpl.html for more information.
+
+```
+cd ~
+sudo apt-get install -y unzip
+wget http://www.mit.edu/~kepner/D4M/d4m_api_2.5.1.zip
+wget http://www.mit.edu/~kepner/D4M/libext_2.5.1.zip
+unzip d4m_api_2.5.1.zip
+cd d4m_api
+unzip ../libext_2.5.1.zip
+```
+
+Once installed, edit TEST/DBsetup.m and examples/3Scaling/2ParallelDatabase/DBsetup.m so that D4M will use your Accumulo instance. I replaced the existing DB definition with the following:
+
+```
+hostname='affy-master';
+cb_type = 'Accumulo';
+instance_name='instance';
+username = 'root';
+password = 'secret';
+DB = DBserver(hostname,cb_type,instance_name, username, password);
+```
+
+And now you can run all of the examples using the following steps. I am not adding the prompt characters so you can cut and paste easier. 
+
+```
+cd ~
+octave
+addpath('/home/vagrant/d4m_api/matlab_src');
+Assoc('','','');
+DBinit;
+hostname='affy-master';
+cb_type = 'Accumulo';
+instance_name='instance';
+username = 'root';
+password = 'secret';
+DB = DBserver(hostname,cb_type,instance_name, username, password);
+cd /home/vagrant/d4m_api/examples;
+d4mTestAllExamples;
+```
+
+On my system, the following three tests failed.
+
+```
+MP7_CompareResultsTEST
+PPL4_FitTransformTEST
+pDB07_AdjQueryTEST
+```
+
+
 
