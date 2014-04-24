@@ -17,6 +17,7 @@ NOTE: 2014-Mar-26 I ran this project today and ran into a difference. So I chang
  accumulo init
    instance: instance
    password: secret
+ cd /home/vagrant/accumulo_home/bin/accumulo
  bin/start-all.sh
 ```
 
