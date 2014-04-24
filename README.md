@@ -14,6 +14,11 @@ NOTE: 2014-Mar-26 I ran this project today and ran into a difference. I needed t
 ```
  vagrant ssh master
  cd /home/vagrant/accumulo_home/bin/accumulo
+ bin/stop-all.sh
+ hadoop fs -rmr /user/accumulo/accumulo
+ accumulo init
+   instance: instance
+   password: secret
  bin/start-here.sh
 ```
 
