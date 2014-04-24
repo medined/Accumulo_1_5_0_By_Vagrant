@@ -24,9 +24,9 @@ NOTE: 2014-Mar-26 I ran this project today and ran into a difference. I needed t
 
 Now you can visit the following URLs in your browser:
 
-<a href='http://affy-master:50095/'>http://affy-master:50095/</a><br/>
-<a href='http://affy-master:50070/dfshealth.jsp'>http://affy-master:50070/dfshealth.jsp</a><br/>
-<a href='http://affy-master:50030/jobtracker.jsp'>http://affy-master:50030/jobtracker.jsp</a><br/>
+<a target="_blank" href='http://affy-master:50095/'>http://affy-master:50095/</a><br/>
+<a target="_blank" href='http://affy-master:50070/dfshealth.jsp'>http://affy-master:50070/dfshealth.jsp</a><br/>
+<a target="_blank" href='http://affy-master:50030/jobtracker.jsp'>http://affy-master:50030/jobtracker.jsp</a><br/>
 
 You can SSH to the nodes using the following commands. Notice that the hostnames start with 'affy-' but that 
 the vagrant nodes do not have the prefix.
