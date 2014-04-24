@@ -6,15 +6,16 @@ user name is 'root' and the password is 'secret'.
 1. Install Vagrant
 2. vagrant plugin install vagrant-hostmanager
 3. Download this project.
-4. Run 'Vagrant up'
+4. Run 'vagrant up'
 5. Run 'post_spinup.sh'
 
 NOTE: 2014-Mar-26 I ran this project today and ran into a difference. I needed to run this before Accumulo would start properly. Not sure why the behavior has changed and I can't devote time now to investigate.
 
+```
  vagrant ssh master
  cd /home/vagrant/accumulo_home/bin/accumulo
  bin/start-here.sh
-
+```
 
 Now you can visit the following URLs in your browser:
 
