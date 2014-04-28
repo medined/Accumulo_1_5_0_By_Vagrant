@@ -97,7 +97,11 @@ instance_name='instance';
 username = 'root';
 password = 'secret';
 DB = DBserver(hostname,cb_type,instance_name, username, password);
+
+ls(DB)
 ```
+
+The ls(DB) command should list your Accumulo tables. Note there is no semi-colon at the end of the command.
 
 And now you can run all of the examples using the following steps. I am not adding the prompt characters so you can cut and paste easier. 
 
