@@ -3,3 +3,13 @@ files/ssh
 vagrant.log
 
 *.box
+
+d4m_api_2.5.1.zip
+
+libext_2.5.1.zip
+
+octave-3.8.1.tar.gz
+
+Vagrantfile
+
+Vagrantfile.by.provision
