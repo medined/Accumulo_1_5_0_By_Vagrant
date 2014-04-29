@@ -35,6 +35,34 @@ vagrant ssh slave1
 vagrant ssh slave2
 ```
 
+## Creating .box files so you can restart cluster in five minutes!
+
+Vagrant helps you to package your virtual machine into a .box file. Which can subsequently be used to start your virtual machines very quickly. Once you've
+followed the steps above and have a working three-node cluster you can follow the steps below.
+
+```
+vagrant package --base affy-master --output virtualbox/affy-master.box
+vagrant package --base affy-slave1 --output virtualbox/affy-slave1.box
+vagrant package --base affy-slave2 --output virtualbox/affy-slave2.box
+
+vagrant box add -f affy-master virtualbox/affy-master.box
+vagrant box add -f affy-slave1 virtualbox/affy-slave1.box
+vagrant box add -f affy-slave2 virtualbox/affy-slave2.box
+
+vagrant destroy
+```
+
+Now you should be setup to restart your cluster. As the cluster starts, you'll be asked if you want to reformat the hadoop filesystem,
+answer N. You can ignore the warnings.
+
+```
+cd virtualbox
+vagrant up
+./post_spinnup.sh
+vagrant ssh master
+accumulo_home/bin/accumulo/bin/start-all.sh
+```
+
 ## Install Pig on a node
 
 1. vagrant ssh master
