@@ -90,6 +90,7 @@ See http://www.gnu.org/software/octave/ for more information.
 The following steps took about 40 minutes to run. Note that Java will work with Octave even though it says the Java package is not installed.
 
 ```
+vagrant ssh slave2
 cd ~
 sudo apt-get install -y g++ gfortran bison
 sudo apt-get build-dep -y octave3.2
@@ -113,7 +114,17 @@ wget http://www.mit.edu/~kepner/D4M/libext_2.5.1.zip
 unzip d4m_api_2.5.1.zip
 cd d4m_api
 unzip ../libext_2.5.1.zip
+exit
 ```
+
+INTERLUDE START
+At this point, you can make a .box file of the slave2 instance complete with the Octave and D4M software using the following steps. Once you've made and added this .box file, you can destroy the cluster. Then go into the d4m directory and vagrant up. 
+
+```
+vagrant package --base affy-slave2 --output affy-d4m.box
+vagrant box add -f affy-d4m affy-d4m.box
+```
+INTERLUDE END
 
 Once installed, edit TEST/DBsetup.m and examples/3Scaling/2ParallelDatabase/DBsetup.m so that D4M will use your Accumulo instance. I replaced the existing DB definition with the following:
 
@@ -155,6 +166,3 @@ MP7_CompareResultsTEST
 PPL4_FitTransformTEST
 pDB07_AdjQueryTEST
 ```
-
-
-
