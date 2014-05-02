@@ -59,7 +59,7 @@ answer N. You can ignore the warnings.
 cd virtualbox
 vagrant up
 ./post_spinnup.sh
-vagrant ssh master
+vagrant ssh slave2
 accumulo_home/bin/accumulo/bin/start-all.sh
 ```
 
